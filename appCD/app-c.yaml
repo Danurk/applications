@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appc-deployment
+  labels:
+    app: appc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appc
+  template:
+    metadata:
+      labels:
+        app: appc
+    spec:
+      containers:
+      - name: appc
+        image: danurky/appc:v1.0.0
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: appc-service-nodeport
+spec:
+  type: NodePort
+  selector:
+    app: appc
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30303
