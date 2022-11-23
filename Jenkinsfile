@@ -47,14 +47,14 @@ pipeline {
             }
         }
         
-        /*
+        
         stage ("Push into ECR") {
             steps {
                 sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 551940803425.dkr.ecr.us-east-1.amazonaws.com"
                 sh "docker push 551940803425.dkr.ecr.us-east-1.amazonaws.com/repo:latest"
             }   
         }
-        */
+        
         
         stage ("Application AB") {
           when {
