@@ -62,7 +62,7 @@ pipeline {
           }
               steps {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', serverUrl: '') {
-                sh "kubectl apply -f appA/app-a.yaml -f appA/app-b.yaml -f appA/ingress.yaml"
+                sh "kubectl apply -f appAB/app-a.yaml -f appAB/app-b.yaml -f appAB/ingress.yaml"
                     
                 }
               }
@@ -74,7 +74,7 @@ pipeline {
           }
               steps {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', serverUrl: '') {
-                sh "kubectl apply -f appA/app-c.yaml -f appA/app-d.yaml -f appA/ingress2.yaml"
+                sh "kubectl apply -f appCD/app-c.yaml -f appCD/app-d.yaml -f appCD/ingress2.yaml"
                     
                 }
               }
