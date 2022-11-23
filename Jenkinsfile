@@ -10,5 +10,23 @@ pipeline {
         echo "hello"
       }
     }
+    stage('for the fix branch') {
+      when {
+        branch "appAB"
+      }
+      steps {
+        sh '''
+          cat README.md
+        '''
+      }
+    }
+    stage('for the CD') {
+      when {
+        branch 'appCD'
+      }
+      steps {
+        echo 'this only runs for appCD'
+      }
+    }
   }
 }
