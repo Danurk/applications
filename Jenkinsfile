@@ -59,26 +59,24 @@ pipeline {
         stage ("Application AB") {
           when {
             branch 'appAB'
-          
-            steps {
+              steps {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', serverUrl: '') {
                 sh "kubectl apply -f appA/app-a.yaml -f appA/app-b.yaml -f appA/ingress.yaml"
                     
                 }
-            }
+              }
           }
         }
 
         stage ("Application CD") {
           when {
             branch 'appCD'
-          
-            steps {
+              steps {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', serverUrl: '') {
                 sh "kubectl apply -f appA/app-c.yaml -f appA/app-d.yaml -f appA/ingress2.yaml"
                     
                 }
-            }
+              }
           }
         }
     }
