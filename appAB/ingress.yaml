@@ -6,6 +6,7 @@ metadata:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/subnets: subnet-0cfdd4c4b5e1c907f, subnet-0c7bcadc551287a2a
 spec:
   rules:
     - http:
@@ -14,13 +15,13 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: appa-service
+                name: appa-service-nodeport
                 port:
-                  number: 30301
+                  number: 80
           - path: /appb.html
             pathType: Prefix
             backend:
               service:
-                name: appb-service
+                name: appb-service-nodeport
                 port:
-                  number: 30302
+                  number: 80

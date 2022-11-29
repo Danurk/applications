@@ -17,7 +17,7 @@ spec:
               service:
                 name: appc-service
                 port:
-                  number: 30303
+                  number: 80
     - host: appd.carlosnascimento.tk
       http:
         paths:
@@ -27,4 +27,4 @@ spec:
               service:
                 name: appd-service
                 port:
-                  number: 30304
+                  number: 80
