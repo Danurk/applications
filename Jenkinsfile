@@ -55,7 +55,7 @@ pipeline {
                 sh "docker push 551940803425.dkr.ecr.us-east-1.amazonaws.com/repo:latest"
             }   
         }
-        */
+*/
         
         stage ("Application AB") {
           when {
