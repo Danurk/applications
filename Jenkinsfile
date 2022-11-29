@@ -35,27 +35,6 @@ pipeline {
 
 pipeline {
     agent any
-    
-/*
-    environment {
-        registry = "551940803425.dkr.ecr.us-east-1.amazonaws.com/repo"
-    }
-    
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'abd03b63-9e13-437d-9bf9-9d421cc22029', url: 'https://github.com/Danurk/applications']]])
-            }
-        }
-        
-        
-        stage ("Push into ECR") {
-            steps {
-                sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 551940803425.dkr.ecr.us-east-1.amazonaws.com"
-                sh "docker push 551940803425.dkr.ecr.us-east-1.amazonaws.com/repo:latest"
-            }   
-        }
-*/
         
         stage ("Application AB") {
           when {
