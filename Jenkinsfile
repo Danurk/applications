@@ -18,7 +18,7 @@ pipeline {
           }
               steps {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', serverUrl: '') {
-                sh "kubectl apply -f namespaces/dev.yaml"
+                sh "kubectl create -f namespaces/dev.yaml"
                 sh "kubectl apply -f appA/app-a.yaml -n dev"
                 sh "kubectl apply -f appB/app-b.yaml -n dev"
                     
@@ -32,7 +32,7 @@ pipeline {
           }
               steps {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', serverUrl: '') {
-                sh "kubectl apply -f namespaces/prod.yaml"
+                sh "kubectl create -f namespaces/prod.yaml"
                 sh "kubectl apply -f appA/app-a.yaml -n prod"
                 sh "kubectl apply -f appB/app-b.yaml -n prod"
                     
