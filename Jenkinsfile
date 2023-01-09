@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'abd03b63-9e13-437d-9bf9-9d421cc22029', url: 'https://github.com/Danurk/applications']]])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-desafio', url: 'https://github.com/Danurk/applications']])
             }
         }
         
